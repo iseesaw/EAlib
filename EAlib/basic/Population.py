@@ -8,6 +8,9 @@
 import random
 from ..basic import Individual
 
+import logging
+logger = logging.getLogger('EAlib')
+
 
 class Population(object):
     """docstring for Population"""
@@ -124,10 +127,9 @@ class Population(object):
         assert gene_max == self.problem.size - 1
         assert gene_min == 0
 
-    def evolve(self, print_every=10):
+    def evolve(self, print_every):
         """evolve"""
         for idx in range(self.max_gen):
             self.next()
-            if not idx % print_every:
-                print(idx)
-                print(self.best_ones[-1]) 
+            if not (idx + 1) % print_every:
+                logger.info(f"{idx}th\n" + str(self.best_ones[-1]))

@@ -7,6 +7,8 @@
 
 import re
 import numpy as np
+import logging
+logger = logging.getLogger('EAlib')
 
 class TSPProblem(object):
     """docstring for TSPPrblem"""
@@ -29,7 +31,7 @@ class TSPProblem(object):
 
     def _compute(self):
         """get distance matrix"""
-        print("Begin computing distance matrix")
+        #logger.info("Begin computing distance matrix ...")
         # 2D, distance(i, j) = self.DM[i][j]
         N = len(self.node_coordinates)
         self.size = N
@@ -44,7 +46,7 @@ class TSPProblem(object):
                 self.DM[i][j] = d
                 self.DM[j][i] = d
 
-        print("Ending computing distance matrix")
+        #logger.info("Ending computing distance matrix ...")
 
     def _get_distance(self, coord1, coord2):
         """Get the distance of two node

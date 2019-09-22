@@ -28,4 +28,4 @@ class Individual(object):
         self.fitness = fitness
 
     def __repr__(self):
-        return f"Fitness\n{self.fitness}\nGene\n{self.gene}"
+        return f"Fitness {self.fitness}\nGene {self.gene}"

@@ -13,56 +13,79 @@
   ```python
   from EAlib.ea import Naive_Ea
   
-  Naive_Ea("tsp/att48.tsp")
+  Naive_Ea(filename="tsp/att48.tsp")
   ```
   
   
   
-- **Run Example**
+- **Run Test**
 
+  - **Command**
+  
   ```bash
   $ ls
   EAlib ref test tsp README.md setup.py
   
-  $ python -m EAlib.ea.navie_ea
-  hello
-  Load TSP Problem D:\ACourse\2019Fall\EvolutionaryComputation\TSP\tsp\att48.tsp Successfully! Begin computing distance matrix
-  Ending computing distance matrix
-  0
-  Fitness
-  126684.4987803689
-  Gene
-  [41, 39, 29, 37, 45, 24, 42, 35, 20, 10, 12, 7, 16, 5, 4, 13, 23, 9, 28, 15, 18, 27, 36, 38, 21, 31, 46, 40, 0, 33, 2, 1, 19, 14, 30, 6, 44, 34, 3, 47, 17, 8, 43, 26, 25, 22, 32, 11]
-  50
-  Fitness
-  101200.64871772051
-  Gene
-  [46, 39, 29, 6, 14, 19, 42, 27, 3, 25, 40, 7, 16, 5, 2, 13, 23, 9, 28, 15, 18, 10, 36, 21, 38, 31, 20, 12, 0, 33, 4, 1, 24, 45, 30, 37, 44, 34, 41, 47, 22, 8, 43, 26, 35, 17, 32, 11]
+  $ python test/EAlibTest.py --filename=tsp/att48.tsp
+  2019-09-22 14:21:37,699 - EAlib - INFO - Welcome to Naive Evolution Algorithm System.
+  Load TSP Problem tsp/att48.tsp Successfully!
+  2019-09-22 14:21:37,711 - EAlib - INFO - Selection: basic_selection
+  2019-09-22 14:21:37,711 - EAlib - INFO - Crossover: basic_crossover
+  2019-09-22 14:21:37,711 - EAlib - INFO - Mutation: basic_mutation
+  2019-09-22 14:21:37,843 - EAlib - INFO - 49th
+  Fitness 110371.2565276248
+  Gene [26, 36, 27, 19, 22, 7, 13, 32, 0, 37, 39, 4, 33, 30, 35, 25, 23, 11, 42, 6, 17, 9, 43, 16, 45, 21, 10, 1, 41, 34, 3, 40, 2, 31, 12, 8, 15, 38, 47, 28, 44, 46, 20, 14, 24, 29, 18, 5]
+  2019-09-22 14:21:37,973 - EAlib - INFO - 99th
+  Fitness 101795.57594933052
+  Gene [26, 36, 27, 42, 29, 46, 13, 32, 0, 37, 39, 4, 20, 41, 2, 22, 23, 11, 19, 6, 17, 44, 31, 16, 45, 21, 10, 1, 25, 34, 3, 40, 35, 43, 14, 30, 15, 38, 47, 28, 9, 24, 33, 12, 7, 8, 18, 5]
+  2019-09-22 14:21:37,975 - EAlib - INFO - Save results to output
+  2019-09-22 14:21:37,991 - EAlib - INFO - That' all.
   ```
   
+  - **Parameters**
+  
+  | parameter   | type  | default       | help                                                     |
+  | ----------- | ----- | ------------- | -------------------------------------------------------- |
+  | filename    | str   | tsp/att48.tsp | tsp problem file (under the tsp dir)                     |
+  | selection   | str   | basic         | [Optional] <br>basic, elitism, tournament, fitnetss      |
+  | crossover   | str   | basic         | [Optional] <br/>basic, order, cycle, edge                |
+  | mutation    | str   | basic         | [Optional] <br/>basic, insert, scramble, inversion, swap |
+  | unit_num    | int   | 20            | unit num of the population                               |
+  | max_gen     | int   | 100           | max generations                                          |
+  | prob_c      | float | 0.5           | probability of crossover                                 |
+  | prob_m      | float | 0.3           | probability of mutation                                  |
+  | print_every | int   | 50            | how many times to print the best one                     |
+  | output_dir  | str   | output        | output the best one record                               |
+  
+  
+  
   
 
-### File Structure
+- **File Structure**
 
 ```bash
+TSP
 |-- EAlib
 |   |-- __init__.py
-|   |-- basic
-|   |   |-- Individual.py
-|   |   |-- Population.py
-|   |   |-- TSPProblem.py	# TODO judge and evolve process
-|   |   `-- __init__.py
-|   |-- ea	# evolution algorightms 
+|   |-- basic	# basic components
+|   |   |-- __init__.py
+|   |   |-- individual.py
+|   |   |-- population.py
+|   |   `-- tspproblem.py
+|   |-- ea	# main
 |   |   |-- __init__.py
 |   |   `-- naive_ea.py
-|   |-- operators	# TODO HERE!!!
+|   |-- log
+|   |   |-- log.conf
+|   |   `-- logging.log
+|   |-- operators	# TODO
 |   |   |-- __init__.py
 |   |   |-- crossover.py
 |   |   |-- mutation.py
 |   |   `-- selection.py
-|   `-- utils	# TODO more DataLoader API
-|       |-- DataLoader.py
-|       `-- __init__.py
+|   `-- utils	# TODO
+|       |-- __init__.py
+|       `-- dataloader.py
 |-- LICENSE
 |-- README.md
 |-- ref
@@ -70,10 +93,12 @@
 |   |-- assignment-TSP.pdf
 |   `-- assignment.md
 |-- setup.py
-|-- test	# TODO more test here
+|-- test
+|   |-- EAlibTest.py	# run test here
 |   |-- TSPProblemTest.py
 |   `-- dataloadertest.py
-`-- tsp # all tsp data here
+`-- tsp
+
 ```
 
 

@@ -18,4 +18,7 @@ def TSPProblemTest():
     tsp = TSPProblem(mode=1, node_coordinates=node_coords)
     print(tsp.DM)
 
-TSPProblemTest()
+from EAlib.ea import Naive_Ea
+
+Naive_Ea("../tsp/att48.tsp")
+#TSPProblemTest()
