@@ -75,7 +75,11 @@
     >
     > step4, `python -m EAlib.ea.naive_ea`
 
-    
+  - LOOK
+
+    -  cities' distance is stored in this adjacent  matrix (You can see `TSPProblem class`), you can call it from `Population class` by `population.problem.DM`
+    - you can get the cost of a solution (individual as well) by `Individual.fitness`
+    - `Individual.gene` is a optional solution (List type, it must satisty the define of TSP Problem, like **No Repeat** and **All Occur Once**)
 
 - **TODO**
 

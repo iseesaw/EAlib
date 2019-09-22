@@ -15,16 +15,16 @@ def basic_selection(population):
     return random.choice(population.individuals)
 
 
-def fitnetss_proporitional():
+def fitnetss_proporitional(population):
     """TODO"""
     raise NotImplementedError
 
 
-def tournament_selection():
+def tournament_selection(population):
     """TODO"""
     raise NotImplementedError
 
 
-def elitism():
+def elitism(population):
     """TODO"""
     raise NotImplementedError

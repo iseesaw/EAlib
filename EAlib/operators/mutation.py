@@ -27,21 +27,21 @@ def basic_mutation(individual):
 
 
 
-def insert_mutation():
+def insert_mutation(individual):
     """TODO"""
     raise NotImplementedError
 
 
-def swap_mutation():
+def swap_mutation(individual):
     """TODO"""
     raise NotImplementedError
 
 
-def inversion_mutation():
+def inversion_mutation(individual):
     """TODO"""
     raise NotImplementedError
 
 
-def scramble_mutation():
+def scramble_mutation(individual):
     """TODO"""
     raise NotImplementedError
