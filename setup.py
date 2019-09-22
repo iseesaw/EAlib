@@ -7,7 +7,7 @@ setup(
     description = 'a EA library for TSP problem',
     license = 'MIT License',
     url = 'https://github.com/iseesaw/EAlib',
-    author = 'Kaiyan Zhang',
+    author = 'HIT EAlib Group',
     author_email = 'kyzhang@ir.hit.edu.cn',
     packages = find_packages(),
     include_package_data = True,

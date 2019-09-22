@@ -23,7 +23,7 @@ class Naive_Ea(object):
         self.population.evolve(print_every=50)
 
     def _test(self):
-        print("hello")
+        print("Welcome to Naive Evolution Algorithm System.")
 
 
 if __name__ == '__main__':
