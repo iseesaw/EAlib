@@ -27,4 +27,4 @@ class Naive_Ea(object):
 
 
 if __name__ == '__main__':
-    Naive_Ea("D:\\ACourse\\2019Fall\\EvolutionaryComputation\\TSP\\tsp\\att48.tsp")
+    Naive_Ea("tsp/att48.tsp")

@@ -13,7 +13,7 @@
   ```python
   from EAlib.ea import Naive_Ea
   
-  Naive_Ea("att48.tsp")
+  Naive_Ea("tsp/att48.tsp")
   ```
   
   
