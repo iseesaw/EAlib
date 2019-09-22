@@ -65,7 +65,7 @@
 
     > You can just write your function in crossover/mutation/selection.py.  
     >
-    > And then run the ea/naive_ea.py file to test as following:
+    > And then run the ea/naive_ea.py file to test  your code as follows:
     >
     > step1, **import** your method in the head (About **line 14-16**)
     >
@@ -73,7 +73,7 @@
     >
     > step3,  goto the **root dir** (`ls`, you can see `EAlib ref test tsp README.md .etc`)
     >
-    > step4, `python -m EAlib.ea.naive_ea`, you can see the result
+    > step4, `python -m EAlib.ea.naive_ea`
 
     
 
