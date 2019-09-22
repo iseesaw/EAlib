@@ -5,11 +5,11 @@
 # @Link    : https://github.com/iseesaw
 # @Version : 1.0
 
-from ..basic import Individual, Population, TSPProblem
+from ..basic import Individual
+from ..basic import Population
+from ..basic import TSPProblem
 from ..utils import BasicLoader
-from ..operators.mutation import basic_mutation
-from ..operators.crossover import basic_crossover
-from ..operators.selection import basic_selection
+
 
 class Naive_Ea(object):
     """docstring for Naive_Ea"""
@@ -19,8 +19,8 @@ class Naive_Ea(object):
         self._test()
         self.tsp = TSPProblem(mode=2, dataloader=BasicLoader(filename))
 
-        self.population = Population(self.tsp, basic_selection, basic_crossover, basic_mutation)
-        self.population.evolve()
+        self.population = Population(self.tsp)
+
 
     def _test(self):
         print("hello")

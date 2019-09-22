@@ -8,6 +8,7 @@
 import re
 import numpy as np
 
+
 class TSPProblem(object):
     """docstring for TSPPrblem"""
 
@@ -17,9 +18,9 @@ class TSPProblem(object):
         """
         super(TSPProblem, self).__init__()
 
-        if mode == 1 and node_coordinates:
+        if mode == 1:
             self.node_coordinates = node_coordinates
-        elif mode == 2 and dataloader:
+        elif mode == 2:
             self.info, self.node_coordinates = dataloader.load()
         else:
             raise NotImplementedError(
@@ -32,7 +33,6 @@ class TSPProblem(object):
         print("Begin computing distance matrix")
         # 2D, distance(i, j) = self.DM[i][j]
         N = len(self.node_coordinates)
-        self.size = N
         # TODO: begin from 1 or 0???
         self.DM = np.zeros((N, N))
 

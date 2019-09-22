@@ -5,7 +5,7 @@
 # @Link    : https://github.com/iseesaw
 # @Version : $Id$
 
-from EAlib.basic.TSPProblem import TSPProblem
+from EAlib.basic.tspproblem import TSPProblem
 
 
 def TSPProblemTest():

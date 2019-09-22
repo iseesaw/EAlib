@@ -6,7 +6,7 @@
 # @Version : $Id$
 
 import os
-from EAlib.utils.DataLoader import BasicLoader
+from EAlib.utils.dataloader import BasicLoader
 
 def BasicLoaderTest():
     import os
