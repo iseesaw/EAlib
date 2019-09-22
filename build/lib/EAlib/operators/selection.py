@@ -5,25 +5,26 @@
 # @Link    :
 # @Version : 1.0s
 
+import random
 
 def basic_selection(population):
     """
     :param population: Population Object
     :return: Individual Obejct
     """
-    raise NotImplementedError
+    return random.choice(population.individuals)
 
 
 def fitnetss_proporitional():
     """TODO"""
-    pass
+    raise NotImplementedError
 
 
 def tournament_selection():
     """TODO"""
-    pass
+    raise NotImplementedError
 
 
 def elitism():
     """TODO"""
-    pass
+    raise NotImplementedError

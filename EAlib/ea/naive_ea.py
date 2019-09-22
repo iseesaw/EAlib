@@ -20,7 +20,7 @@ class Naive_Ea(object):
         self.tsp = TSPProblem(mode=2, dataloader=BasicLoader(filename))
 
         self.population = Population(self.tsp, basic_selection, basic_crossover, basic_mutation)
-        self.population.evolve()
+        self.population.evolve(print_every=50)
 
     def _test(self):
         print("hello")

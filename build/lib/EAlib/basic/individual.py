@@ -16,3 +16,16 @@ class Individual(object):
         super(Individual, self).__init__()
 
         self.gene = gene
+
+        self.gene_len = len(gene)
+
+        self.fitness = None
+
+    def set_fitness(self, fitness):
+        """
+        :param fitness: int,
+        """
+        self.fitness = fitness
+
+    def __repr__(self):
+        return f"Fitness\n{self.fitness}\nGene\n{self.gene}"
