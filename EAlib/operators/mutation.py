@@ -28,7 +28,10 @@ def basic_mutation(individual):
 
 
 def insert_mutation(individual):
-    """TODO"""
+    """
+    :param individual: Individual Object
+    :return: Individual Object, new individual after gene mutation
+    """
     index1 = random.randint(0, individual.gene_len - 1)
     index2 = random.randint(0, individual.gene_len - 1)
     index1 = min(index1, index2)
@@ -43,12 +46,18 @@ def insert_mutation(individual):
 
 
 def swap_mutation(individual):
-    """TODO"""
+    """
+    :param individual: Individual Object
+    :return: Individual Object, new individual after gene mutation
+    """
     return basic_mutation(individual)
 
 
 def inversion_mutation(individual):
-    """TODO"""
+    """
+    :param individual: Individual Object
+    :return: Individual Object, new individual after gene mutation
+    """
     index1 = random.randint(0, individual.gene_len - 1)
     index2 = random.randint(0, individual.gene_len - 1)
     index1 = min(index1, index2)
@@ -62,7 +71,10 @@ def inversion_mutation(individual):
 
 
 def scramble_mutation(individual):
-    """TODO"""
+    """
+    :param individual: Individual Object
+    :return: Individual Object, new individual after gene mutation
+    """
     index1 = random.randint(0, individual.gene_len - 1)
     index2 = random.randint(0, individual.gene_len - 1)
     index1 = min(index1, index2)
