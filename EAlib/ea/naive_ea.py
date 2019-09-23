@@ -58,7 +58,8 @@ class Naive_Ea(object):
         """Output to file"""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-        with open(os.path.join(output_dir, "%s.json" % filename.split(".")[0][4:]), "w") as f:
+        filename = filename.split("/")[-1] if "/" in filename else filename.split("\\")[-1] 
+        with open(os.path.join(output_dir, "%s.json" % filename), "w") as f:
             best_ones = {idx: {"fitness": individual.fitness, "gene": individual.gene}
                          for idx, individual in enumerate(population.best_ones)}
             record = {
