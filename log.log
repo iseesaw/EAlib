@@ -14359,3 +14359,31 @@ Gene [214, 437, 335, 333, 260, 169, 131, 162, 39, 6, 4, 5, 125, 233, 238, 114, 3
 2019-09-24 17:32:30 INFO Selection: basic_selection
 2019-09-24 17:32:30 INFO Crossover: basic_crossover
 2019-09-24 17:32:30 INFO Mutation: scramble_mutation
+2019-09-24 17:34:07 INFO Run tsp/att48.tsp
+2019-09-24 17:34:07 INFO Selection: rank_based
+2019-09-24 17:34:07 INFO Crossover: basic_crossover
+2019-09-24 17:34:07 INFO Mutation: basic_mutation
+2019-09-24 17:34:07 INFO 49th
+85269.53916583932
+2019-09-24 17:34:07 INFO 99th
+75567.95535921805
+2019-09-24 17:34:14 INFO Run tsp/att48.tsp
+2019-09-24 17:34:14 INFO Selection: tournament_selection
+2019-09-24 17:34:14 INFO Crossover: basic_crossover
+2019-09-24 17:34:14 INFO Mutation: basic_mutation
+2019-09-24 17:34:21 INFO Run tsp/att48.tsp
+2019-09-24 17:34:21 INFO Selection: fitnetss_proporitional
+2019-09-24 17:34:21 INFO Crossover: basic_crossover
+2019-09-24 17:34:21 INFO Mutation: basic_mutation
+2019-09-24 17:34:21 INFO 49th
+95770.39165942416
+2019-09-24 17:34:21 INFO 99th
+79569.93646093033
+2019-09-24 17:34:50 INFO Run tsp/att48.tsp
+2019-09-24 17:34:50 INFO Selection: basic_selection
+2019-09-24 17:34:50 INFO Crossover: Order_Crossover
+2019-09-24 17:34:50 INFO Mutation: basic_mutation
+2019-09-24 17:35:26 INFO Run tsp/att48.tsp
+2019-09-24 17:35:26 INFO Selection: basic_selection
+2019-09-24 17:35:26 INFO Crossover: Order_Crossover
+2019-09-24 17:35:26 INFO Mutation: basic_mutation

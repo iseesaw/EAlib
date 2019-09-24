@@ -3,3 +3,5 @@ basic_selection	basic_crossover	inversion_mutation	100284.76859009752
 basic_selection	basic_crossover	inversion_mutation	91143.94454518339
 basic_selection	basic_crossover	insert_mutation	104648.12204911483
 rank_based	basic_crossover	basic_mutation	83094.4897135602
+rank_based	basic_crossover	basic_mutation	75567.95535921805
+fitnetss_proporitional	basic_crossover	basic_mutation	79569.93646093033

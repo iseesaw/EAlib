@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: EAlib
+Version: 1.0
+Summary: a EA library for TSP problem
+Home-page: https://github.com/iseesaw/EAlib
+Author: HIT EAlib Group
+Author-email: kyzhang@ir.hit.edu.cn
+License: MIT License
+Description: UNKNOWN
+Keywords: ea tsp
+Platform: any
