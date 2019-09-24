@@ -11,19 +11,18 @@ import datetime
 
 from ..basic import Individual, Population, TSPProblem
 from ..utils import BasicLoader
-from ..operators.mutation import basic_mutation
-from ..operators.crossover import basic_crossover
-from ..operators.selection import basic_selection
 from ..log import get_logger
+
 
 class Naive_Ea(object):
     """docstring for Naive_Ea"""
 
     def __init__(self,
                  filename,
-                 selection_func=basic_selection,
-                 crossover_func=basic_crossover,
-                 mutation_func=basic_mutation,
+                 selection_func,
+                 crossover_func,
+                 mutation_func,
+                 elitism=True,
                  unit_num=50,
                  max_gen=100,
                  prob_c=0.5,
@@ -36,30 +35,39 @@ class Naive_Ea(object):
 
         self.tsp = TSPProblem(mode=2, dataloader=BasicLoader(filename))
 
+        logger.info(f"Run {filename}")
         logger.info(f"Selection: {selection_func.__name__}")
         logger.info(f"Crossover: {crossover_func.__name__}")
         logger.info(f"Mutation: {mutation_func.__name__}")
 
         self.population = Population(self.tsp,
-                                     basic_selection,
-                                     basic_crossover,
-                                     basic_mutation,
+                                     selection_func,
+                                     crossover_func,
+                                     mutation_func,
+                                     elitism,
                                      unit_num,
                                      max_gen,
                                      prob_c,
                                      prob_m)
         self.population.evolve(print_every)
 
-        logger.info("Save results to %s" % output_dir)
-        self.save(filename, output_dir, self.population)
-        logger.info("That' all.")
+        filename = filename.split(
+            "/")[-1] if "/" in filename else filename.split("\\")[-1]
+
+        self._for_grid(filename, output_dir, self.population)
+
+        # filename = f"{filename}.{selection_func.__name__}.{crossover_func.__name__}.{mutation_func.__name__}.{unit_num}.{max_gen}.json"
+
+        # logger.info("Save results to %s" % output_dir)
+        # self.save(filename, output_dir, self.population)
+        # logger.info("That' all.")
 
     def save(self, filename, output_dir, population):
         """Output to file"""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-        filename = filename.split("/")[-1] if "/" in filename else filename.split("\\")[-1] 
-        with open(os.path.join(output_dir, "%s.json" % filename), "w") as f:
+
+        with open(os.path.join(output_dir, filename), "w") as f:
             best_ones = {idx: {"fitness": individual.fitness, "gene": individual.gene}
                          for idx, individual in enumerate(population.best_ones)}
             record = {
@@ -81,6 +89,10 @@ class Naive_Ea(object):
                 "best_ones": best_ones
             }
             json.dump(record, f, indent=4)
+
+    def _for_grid(self, filename, output_dir, population):
+        with open("output/%s" % filename, "a") as f:
+            f.write(f"{population.selection_func.__name__}\t{population.crossover_func.__name__}\t{population.mutation_func.__name__}\t{population.best_ones[-1].fitness}\n")
 
 
 if __name__ == '__main__':

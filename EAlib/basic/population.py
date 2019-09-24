@@ -15,7 +15,7 @@ logger = logging.getLogger('EAlib')
 class Population(object):
     """docstring for Population"""
 
-    def __init__(self, problem, selection_func, crossover_func, mutation_func, unit_num=50, max_gen=100, prob_c=0.5, prob_m=0.3):
+    def __init__(self, problem, selection_func, crossover_func, mutation_func, elitism=True, unit_num=50, max_gen=100, prob_c=0.5, prob_m=0.3):
         """
         :param problem: TSPProblem object
         :param max_gen: max generations(iterations)
@@ -30,6 +30,8 @@ class Population(object):
         self.selection_func = selection_func
         self.crossover_func = crossover_func
         self.mutation_func = mutation_func
+
+        self.elitism = elitism
 
         self.unit_num = unit_num
         self.max_gen = max_gen
@@ -86,10 +88,12 @@ class Population(object):
         self.judge()
 
         new_individuals = []
-        new_individuals.append(self.best_ones[-1])
+
+        if self.elitism:
+            new_individuals.append(self.best_ones[-1])
 
         # next generations
-        for _ in range(self.unit_num - 1):
+        for _ in range((self.unit_num - 1) if self.elitism else self.unit_num):
             # select the first parent
             parent1 = self.selection_func(self)
 
@@ -107,7 +111,7 @@ class Population(object):
                 individual = self.mutation_func(individual)
 
             # TODO
-            # self._eval(individual)
+            self._eval(individual)
             new_individuals.append(individual)
 
         # update
@@ -121,15 +125,15 @@ class Population(object):
         max(set(individual.gene)) = individual
         """
         gene_set = set(individual.gene)
-        assert len(gene_set) == self.problem.size
+        assert len(gene_set) == self.problem.size, f"gene size ({gene_set}) != problem size ({self.problem.size})"
 
         gene_max, gene_min = max(gene_set), min(gene_set)
-        assert gene_max == self.problem.size - 1
-        assert gene_min == 0
+        assert gene_max == self.problem.size - 1, f"gene_max ({gene_max}) != problem size ({self.problem.size})"
+        assert gene_min == 0, f"gene min ({gene_min})"
 
     def evolve(self, print_every):
         """evolve"""
         for idx in range(self.max_gen):
             self.next()
             if not (idx + 1) % print_every:
-                logger.info(f"{idx}th\n" + str(self.best_ones[-1]))
+                logger.info(f"{idx}th\n" + str(self.best_ones[-1].fitness))
