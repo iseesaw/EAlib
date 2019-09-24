@@ -72,7 +72,7 @@ if __name__ == '__main__':
     parser.add_argument("--prob_m", type=float, default=0.3, help="probability of mutation")
 
     # others
-    parser.add_argument("--print_every", type=int, default=50, help="how many generations to print")
+    parser.add_argument("--print_every", type=int, default=1000, help="how many generations to print")
 
     parser.add_argument("--output_dir", type=str, default="output", help="output directionary")
 

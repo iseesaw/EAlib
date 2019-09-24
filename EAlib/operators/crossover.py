@@ -40,29 +40,29 @@ def basic_crossover(individual1, individual2):
 def Order_Crossover(individual1, individual2):
     # order 1 crossover
 
-    # select a random swath of consecutive alleles from parent 1.
-    index1 = random.randint(0, individual1.gene_len - 1)
-    index2 = random.randint(index1, individual1.gene_len - 1)
+    # # select a random swath of consecutive alleles from parent 1.
+    # index1 = random.randint(0, individual1.gene_len - 1)
+    # index2 = random.randint(index1, individual1.gene_len - 1)
 
-    # drop down to child 1.
-    temp_gene = individual1.gene[index1:index2]
-    new_gene = []
+    # # drop down to child 1.
+    # temp_gene = individual1.gene[index1:(index2+1)]
+    # new_gene = []
 
-    # Starting on the right side of the swath,
-    # grab alleles from parent 2 and insert them in Child 1
-    # at the right edge of the swath.
+    # # Starting on the right side of the swath,
+    # # grab alleles from parent 2 and insert them in Child 1
+    # # at the right edge of the swath.
 
-    cont = 0
-    for g in individual2.gene:
-        if g not in temp_gene:
-            new_gene.append(g)
-            cont += 1
-        if cont == index1:
-            new_gene.extend(temp_gene)
-            cont += 1
+    # cont = 0
+    # for g in individual2.gene:
+    #     if g not in temp_gene:
+    #         new_gene.append(g)
+    #         cont += 1
+    #     if cont == index1:
+    #         new_gene.extend(temp_gene)
+    #         cont += 1
 
-    return Individual(new_gene)
-
+    # return Individual(new_gene)
+    return basic_crossover(individual1, individual2)
 
 def PMX_Crossover(individual1, individual2):
 

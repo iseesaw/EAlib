@@ -59,10 +59,10 @@ class Naive_Ea(object):
         filename = f"{filename}.{selection_func.__name__.split('_')[0]}.{crossover_func.__name__.split('_')[0]}.{mutation_func.__name__.split('_')[0]}.{unit_num}.{max_gen}.json"
 
         logger.info("Save results to %s" % output_dir)
-        self.save(filename, output_dir, self.population)
+        self.save(filename, output_dir, self.population, max_gen)
         logger.info("That' all.")
 
-    def save(self, filename, output_dir, population):
+    def save(self, filename, output_dir, population, max_gen):
         """Output to file"""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
@@ -70,6 +70,7 @@ class Naive_Ea(object):
         with open(os.path.join(output_dir, filename), "w") as f:
             best_ones = {idx: {"fitness": individual.fitness, "gene": individual.gene}
                          for idx, individual in enumerate(population.best_ones)}
+            save_best_ones = {idx:best_ones[idx] for idx in range(0, max_gen, 100)}
             record = {
                 "tsp": filename.split(".")[0],
                 "date": str(datetime.datetime.now()),
@@ -86,7 +87,7 @@ class Naive_Ea(object):
                     "fitness": population.best_ones[-1].fitness,
                     "gene": population.best_ones[-1].gene
                 },
-                "best_ones": best_ones
+                "best_ones": save_best_ones
             }
             json.dump(record, f, indent=4)
 

@@ -135,5 +135,5 @@ class Population(object):
         """evolve"""
         for idx in range(self.max_gen):
             self.next()
-            if not (idx + 1) % print_every:
+            if not idx % print_every:
                 logger.info(f"{idx}th\n" + str(self.best_ones[-1].fitness))
