@@ -45,7 +45,7 @@ def Order_Crossover(individual1, individual2):
     index2 = random.randint(index1, individual1.gene_len - 1)
 
     # drop down to child 1.
-    temp_gene = individual1.gene[index1:index2 + 1]
+    temp_gene = individual1.gene[index1:index2]
     new_gene = []
 
     # Starting on the right side of the swath,
@@ -54,11 +54,11 @@ def Order_Crossover(individual1, individual2):
 
     cont = 0
     for g in individual2.gene:
-        if cont == index1:
-            new_gene.extend(temp_gene)
-            cont += 1
         if g not in temp_gene:
             new_gene.append(g)
+            cont += 1
+        if cont == index1:
+            new_gene.extend(temp_gene)
             cont += 1
 
     return Individual(new_gene)

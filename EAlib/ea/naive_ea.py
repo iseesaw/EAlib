@@ -54,13 +54,13 @@ class Naive_Ea(object):
         filename = filename.split(
             "/")[-1] if "/" in filename else filename.split("\\")[-1]
 
-        self._for_grid(filename, output_dir, self.population)
+        #self._for_grid(filename, output_dir, self.population)
 
-        # filename = f"{filename}.{selection_func.__name__}.{crossover_func.__name__}.{mutation_func.__name__}.{unit_num}.{max_gen}.json"
+        filename = f"{filename}.{selection_func.__name__.split('_')[0]}.{crossover_func.__name__.split('_')[0]}.{mutation_func.__name__.split('_')[0]}.{unit_num}.{max_gen}.json"
 
-        # logger.info("Save results to %s" % output_dir)
-        # self.save(filename, output_dir, self.population)
-        # logger.info("That' all.")
+        logger.info("Save results to %s" % output_dir)
+        self.save(filename, output_dir, self.population)
+        logger.info("That' all.")
 
     def save(self, filename, output_dir, population):
         """Output to file"""

@@ -1,2 +1,0 @@
-rank_based	Cy_cle_Crossover	insert_mutation	37196.305416353425
-rank_based	Edge_Recombination	insert_mutation	40685.37824834029

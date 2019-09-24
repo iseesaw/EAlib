@@ -61,9 +61,9 @@ def tournament_selection(population, tournament_size=2):
     """
     complete = lambda competitors: min(competitors, key=population.get_disctance)
 
-    if tournament_size > len(population):
+    if tournament_size > len(population.individuals):
         msg = 'tournament size({}) is larger than population size({})'
-        raise ValueError(msg.format(tournament_size, len(population)))
+        raise ValueError(msg.format(tournament_size, len(population.individuals)))
 
     competitors = random.sample(population.individuals, tournament_size)
     return complete(competitors)

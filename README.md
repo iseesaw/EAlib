@@ -10,6 +10,8 @@
 
 - **Usage**
 
+  You can write your own code with EAlib.
+  
   ```python
   from EAlib.ea import Naive_Ea
   
@@ -20,29 +22,15 @@
   
 - **Run Test**
 
-  - **Command**
+  - **Run Python files**
   
   ```bash
   $ ls
   EAlib ref test tsp README.md setup.py
-  
   $ python test/EAlibTest.py --filename=tsp/att48.tsp
-  2019-09-22 14:21:37,699 - EAlib - INFO - Welcome to Naive Evolution Algorithm System.
-  Load TSP Problem tsp/att48.tsp Successfully!
-  2019-09-22 14:21:37,711 - EAlib - INFO - Selection: basic_selection
-  2019-09-22 14:21:37,711 - EAlib - INFO - Crossover: basic_crossover
-  2019-09-22 14:21:37,711 - EAlib - INFO - Mutation: basic_mutation
-  2019-09-22 14:21:37,843 - EAlib - INFO - 49th
-  Fitness 110371.2565276248
-  Gene [26, 36, 27, 19, 22, 7, 13, 32, 0, 37, 39, 4, 33, 30, 35, 25, 23, 11, 42, 6, 17, 9, 43, 16, 45, 21, 10, 1, 41, 34, 3, 40, 2, 31, 12, 8, 15, 38, 47, 28, 44, 46, 20, 14, 24, 29, 18, 5]
-  2019-09-22 14:21:37,973 - EAlib - INFO - 99th
-  Fitness 101795.57594933052
-  Gene [26, 36, 27, 42, 29, 46, 13, 32, 0, 37, 39, 4, 20, 41, 2, 22, 23, 11, 19, 6, 17, 44, 31, 16, 45, 21, 10, 1, 25, 34, 3, 40, 35, 43, 14, 30, 15, 38, 47, 28, 9, 24, 33, 12, 7, 8, 18, 5]
-  2019-09-22 14:21:37,975 - EAlib - INFO - Save results to output
-  2019-09-22 14:21:37,991 - EAlib - INFO - That' all.
   ```
   
-  - **Parameters**
+  - **Arguments in the file**
   
   | parameter   | type  | default       | help                                                     |
   | ----------- | ----- | ------------- | -------------------------------------------------------- |
@@ -57,12 +45,66 @@
   | print_every | int   | 50            | how many times to print the best one                     |
   | output_dir  | str   | output        | output the best one record                               |
   
+  - **Mapping parameter to functions**
   
+    ```python
+        selections = {
+            "basic": basic_selection,
+            "rank": rank_based,
+            "tournament": tournament_selection,
+            "fitnetss": fitnetss_proporitional
+        }
+    
+        mutations = {
+            "basic": basic_mutation,
+            "insert": insert_mutation,
+            "scramble": scramble_mutation,
+            "inversion": inversion_mutation,
+            "swap": swap_mutation
+        }
+    
+        crossovers = {
+            "basic": basic_crossover,
+            "order": Order_Crossover,
+            "cycle": Cy_cle_Crossover,
+            "edge": Edge_Recombination,
+            "pmx": PMX_Crossover
+        }
+    
+    ```
   
+    
+  
+- **Run Scripts**
+
+  - **Grid Search**, which is used to find the best topk combinations.
+
+    ```bash
+    bash search.sh
+    ```
+
+    This script is running `4 x 4 x 3 = 48` algorithms on nine datasets(Not including pr2392).
+
+    You can get the results in `output/grid_search`
+
+  - **Run best algorithm** 10 datasets with 4 population sizes.
+
+    ```bash
+    bash run.sh selection_func crossover_func mutation_func
+    ```
+
+    You can find the functions' name in Mapping parameters to functions.
+
+    And the results are save in `output/{filename}.{selection_func}.{crossover_func}.{mutation_func}.{unit_num}.{max_gen}.json`.
+
+    At the end, you can get `4 x 10 = 40` results on the algorithm.
+
 - **Development**
 
-  - *operators*
+  - *Write your own operators*
 
+    - ``
+  
     > You can just write your function in crossover/mutation/selection.py.  
     >
     > And then run the ea/naive_ea.py file to test  your code as follows:
@@ -72,23 +114,8 @@
     > step2, change parameters at **line 24-26**
     >
     > step3,  goto the **root dir** (`ls`, you can see `EAlib ref test tsp README.md .etc`)
-    >
+  >
     > step4, `python -m EAlib.ea.naive_ea`
-
-  - LOOK
-
-    -  cities' distance is stored in this adjacent  matrix (You can see `TSPProblem class`), you can call it from `Population class` by `population.problem.DM`
-    - you can get the cost of a solution (individual as well) by `Individual.fitness`
-    - `Individual.gene` is a optional solution (List type, it must satisty the define of TSP Problem, like **No Repeat** and **All Occur Once**)
-
-- **TODO**
-
-  - dataloader (at least two types)
-  - fitness function (Should according to the data (geography or not))
-  - performance (That's importance, high-efficient?)
-  - waiting to see
-
-  
 
 - **File Structure**
 

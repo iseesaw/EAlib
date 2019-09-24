@@ -6,34 +6,32 @@
 #####################################
 
 # install the lib
-#python setup.py install
+python setup.py install
+
+# define the functions
+# bash run.sh basic basic basic
+selection=$1
+mutation=$2
+crossover=$3
 
 # parameters
 unit_nums=(10 20 50 100)
-max_gens=(5000 10000 20000)
+#max_gens=(5000 10000 20000)
 
 # filenames
 filenames=(eil51 eil76 eil101 st70 kroA100 kroC100 kroD100 lin105 pcb442 pr2392)
 
-# functions
-selections=(rank tournament fitnetss)
-mutations=(insert scramble inversion swap)
-crossovers=(order cycle edge)
-
-for s in ${selections[@]};
+for filename in ${filenames[@]};
 do
-    for m in ${mutations[@]};
+    for unit_num in ${unit_nums[@]};
     do
-        for c in ${crossovers[@]};
-        do
-            python test/EAlibTest.py \
-                   -filename=tsp/eil51.tsp \
-                   --selection=$s \
-                   --mutation=$m \
-                   --crossover=$c \
-                   --unit_num=50 \
-                   --max_gen=100
-        done
+        python test/EAlibTest.py \
+              -filename=tsp/${filename}.tsp \
+               --selection=$selection \
+               --mutation=$mutation \
+               --crossover=$crossover \
+               --unit_num=$unit_num \
+               --max_gen=20000
     done
 done
 

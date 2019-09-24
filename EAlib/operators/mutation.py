@@ -87,4 +87,4 @@ def scramble_mutation(individual):
     random.shuffle(temp_list)
     new_gene[index1:(index2 + 1)] = temp_list
 
-    return new_gene
+    return Individual(new_gene)

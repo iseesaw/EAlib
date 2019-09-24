@@ -11,7 +11,7 @@ python setup.py install
 # functions
 selections=(rank tournament fitnetss)
 mutations=(insert scramble inversion swap)
-crossovers=(order cycle edge)
+crossovers=(pmx) #order cycle edge
 
 filenames=(eil51 eil76 eil101 st70 kroA100 kroC100 kroD100 lin105 pcb442 pr2392)
 
