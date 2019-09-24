@@ -65,7 +65,8 @@ def inversion_mutation(individual):
 
     new_gene = copy.deepcopy(individual.gene)
 
-    new_gene[index1, index2+1] = list(reversed(new_gene[index1, index2+1]))
+    new_gene[index1:(index2 + 1)
+             ] = list(reversed(new_gene[index1:(index2 + 1)]))
 
     return Individual(new_gene)
 
@@ -82,8 +83,8 @@ def scramble_mutation(individual):
 
     new_gene = copy.deepcopy(individual.gene)
 
-    temp_list = new_gene[index1, index2+1]
-    temp_list.shuffle(temp_list)
-    new_gene[index1, index2+1] = temp_list
+    temp_list = new_gene[index1:(index2 + 1)]
+    random.shuffle(temp_list)
+    new_gene[index1, index2 + 1] = temp_list
 
     return new_gene
