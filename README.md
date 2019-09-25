@@ -98,6 +98,20 @@
     And the results are save in `output/{filename}.{selection_func}.{crossover_func}.{mutation_func}.{unit_num}.{max_gen}.json`.
 
     At the end, you can get `4 x 10 = 40` results on the algorithm.
+    
+  - **Visualization**
+
+    ```bash
+    python test\visual.py -filename=att48.tsp.basic_selection.basic_crossover.basic_mutation.50.100
+    ```
+
+    | parameter | type  | default                             | usage                   |
+    | --------- | ----- | ----------------------------------- | ----------------------- |
+    | filename  | str   | None                                | output result file name |
+    | tsp       | str   | None<br>(default get from filename) | tsp problem file        |
+    | pause     | float | 0.5                                 | time to pause           |
+
+    
 
 - **Development**
 
