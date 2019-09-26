@@ -55,8 +55,9 @@ class Naive_Ea(object):
             "/")[-1] if "/" in filename else filename.split("\\")[-1]
 
         #self._for_grid(filename, output_dir, self.population)
-
-        filename = f"{filename}.{selection_func.__name__.split('_')[0]}.{crossover_func.__name__.split('_')[0]}.{mutation_func.__name__.split('_')[0]}.{unit_num}.{max_gen}.json"
+        date = datetime.datetime.now()
+        endfix = f"{date.year}-{date.month}-{date.day}.{date.hour}-{date.minute}"
+        filename = f"{filename}.{selection_func.__name__.split('_')[0]}.{crossover_func.__name__.split('_')[0]}.{mutation_func.__name__.split('_')[0]}.{unit_num}.{max_gen}.{endfix}.json"
 
         logger.info("Save results to %s" % output_dir)
         self.save(filename, output_dir, self.population, max_gen)

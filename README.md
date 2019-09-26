@@ -87,7 +87,7 @@
 
     You can get the results in `output/grid_search`
 
-  - **Run best algorithm** 10 datasets with 4 population sizes.
+  - **Run top3 best algorithms** 10 datasets with 4 population sizes.
 
     ```bash
     bash run.sh selection_func crossover_func mutation_func
@@ -110,6 +110,12 @@
     | filename  | str   | None                                | output result file name |
     | tsp       | str   | None<br>(default get from filename) | tsp problem file        |
     | pause     | float | 0.5                                 | time to pause           |
+
+  - **Run Best algorithm on ten dataset for N iterations **
+
+    ```bash
+    bash run_best.sh
+    ```
 
     
 
