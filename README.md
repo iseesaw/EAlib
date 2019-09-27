@@ -2,7 +2,7 @@
 
 ### **Get Started**
 
-Just One Line Code
+Just One Line Code.
 
 ```bash
 $ python setup.py install && python test/EAlibTest.py -filename=tsp/eil51.tsp && python test/visual.py -filename=ei151.tsp
