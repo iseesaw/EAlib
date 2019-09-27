@@ -7,7 +7,9 @@
 
 
 class Individual(object):
-    """docstring for Individual"""
+    """
+    The class to represent individual.
+    """
 
     def __init__(self, gene):
         """

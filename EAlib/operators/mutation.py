@@ -13,6 +13,7 @@ from ..basic import Individual
 
 def basic_mutation(individual):
     """
+    an intuitive approach as a bisic one, which actually is swap mutation
     :param individual: Individual Object
     :return: Individual Object, new individual after gene mutation
     """
@@ -29,6 +30,7 @@ def basic_mutation(individual):
 
 def insert_mutation(individual):
     """
+    insert mutation
     :param individual: Individual Object
     :return: Individual Object, new individual after gene mutation
     """
@@ -47,6 +49,7 @@ def insert_mutation(individual):
 
 def swap_mutation(individual):
     """
+    swap muation
     :param individual: Individual Object
     :return: Individual Object, new individual after gene mutation
     """
@@ -55,6 +58,7 @@ def swap_mutation(individual):
 
 def inversion_mutation(individual):
     """
+    inversion mutation
     :param individual: Individual Object
     :return: Individual Object, new individual after gene mutation
     """
@@ -73,6 +77,7 @@ def inversion_mutation(individual):
 
 def scramble_mutation(individual):
     """
+    scramble mutation
     :param individual: Individual Object
     :return: Individual Object, new individual after gene mutation
     """

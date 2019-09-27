@@ -7,7 +7,11 @@
 
 import logging
 
+
 def get_logger():
+    """
+    the function return a logger object to save the log of program.
+    """
     logger = logging.getLogger()
     logger.setLevel('DEBUG')
     BASIC_FORMAT = "%(asctime)s %(levelname)s %(message)s"

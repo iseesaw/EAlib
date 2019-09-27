@@ -5,6 +5,7 @@
 # @Link    : https://github.com/iseesaw
 # @Version : $Id$
 
+import os
 import json
 import argparse
 import numpy as np
@@ -14,7 +15,7 @@ from EAlib.utils.dataloader import BasicLoader
 
 
 def main(argv):
-    filename, tsp = argv.filename, argv.tsp
+    filename, tsp = argv.filename, argv.tsps
     result = load_result(filename)
     if not tsp:
         tsp = "tsp/%s.tsp" % result["tsp"]
@@ -58,11 +59,11 @@ def get_pairs(gene, node_coords):
     return x, y
 
 
-def load_result(filename):
+def load_result(filename, filedir="output"):
     if not filename:
         raise FileNotFoundError(f"Result file {filename} is not found.")
 
-    with open("output/%s.json" % filename, "r", encoding="utf-8") as f:
+    with open(os.path.join(filedir, "%s.json" % filename), "r", encoding="utf-8") as f:
         result = json.load(f)
     return result
 

@@ -11,7 +11,10 @@ import logging
 logger = logging.getLogger('EAlib')
 
 class TSPProblem(object):
-    """docstring for TSPPrblem"""
+    """
+    The class to represent the tsp problem.
+    We can save the params of the tsp problem in this object.
+    """
 
     def __init__(self, mode, node_coordinates=None, dataloader=None):
         """
@@ -49,7 +52,7 @@ class TSPProblem(object):
         #logger.info("Ending computing distance matrix ...")
 
     def _get_distance(self, coord1, coord2):
-        """Get the distance of two node
-        TODO: geography or not? ball or plane?
+        """
+        Get the distance of two node
         """
         return np.linalg.norm(np.array(coord1) - np.array(coord2))

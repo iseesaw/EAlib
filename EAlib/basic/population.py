@@ -13,7 +13,9 @@ logger = logging.getLogger('EAlib')
 
 
 class Population(object):
-    """docstring for Population"""
+    """
+    The class to represent population which is composed of individual.
+    """
 
     def __init__(self, problem, selection_func, crossover_func, mutation_func, elitism=True, unit_num=50, max_gen=100, prob_c=0.5, prob_m=0.3):
         """
@@ -55,6 +57,10 @@ class Population(object):
             self.individuals.append(Individual(gene))
 
     def judge(self):
+        """
+        insert the best individual of the last generation to next generation.
+        :return:
+        """
         temp = -1
         best_one = None
         for individual in self.individuals:
@@ -66,6 +72,11 @@ class Population(object):
         self.best_ones.append(best_one)
 
     def get_disctance(self, individual):
+        """
+        calculate the fitness(cost) of the given individual.
+        :param individual:
+        :return:
+        """
         if individual.fitness:
             return individual.fitness
         distance = 0
@@ -83,6 +94,7 @@ class Population(object):
         :param selection_func:
         :param crossover_func:
         :param mutation_func:
+        get a new generation as the following procedure.
         judge -> selection -> mutation -> crossover -> judge
         """
         self.judge()
@@ -132,7 +144,11 @@ class Population(object):
         assert gene_min == 0, f"gene min ({gene_min})"
 
     def evolve(self, print_every):
-        """evolve"""
+        """
+        get descendants of now generation many time.
+        :param print_every:
+        :return:
+        """
         for idx in range(self.max_gen):
             self.next()
             if not idx % print_every:
