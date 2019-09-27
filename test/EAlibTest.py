@@ -58,9 +58,9 @@ if __name__ == '__main__':
     parser.add_argument("-filename", default="tsp/att48.tsp", help="TSP Problem file name")
 
     # function selction
-    parser.add_argument("--selection", default="basic", help="selection function")
-    parser.add_argument("--crossover", default="basic", help="crossover function")
-    parser.add_argument("--mutation", default="basic", help="mutation function")
+    parser.add_argument("--selection", default="tournament", help="selection function")
+    parser.add_argument("--crossover", default="pmx", help="crossover function")
+    parser.add_argument("--mutation", default="inversion", help="mutation function")
     parser.add_argument("--elitism", type=bool, default=True, help="elitism or not in the selection")
 
     # basic setting
