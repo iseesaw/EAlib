@@ -15,7 +15,7 @@ from EAlib.utils.dataloader import BasicLoader
 
 
 def main(argv):
-    filename, tsp = argv.filename, argv.tsps
+    filename, tsp = argv.filename, argv.tsp
     result = load_result(filename)
     if not tsp:
         tsp = "tsp/%s.tsp" % result["tsp"]
