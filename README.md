@@ -1,16 +1,22 @@
 ## EAlib
 
+Video Here:
+- [OneDriver](https://1drv.ms/v/s!Al3M6DKQN2ZdmVhEGCHBqPbyBcHo?e=kHUzvY) 
+- [YouTube](https://youtu.be/izNkwlp6rEs)
+
 ### **Get Started**
 
-Just One Line Code
+> numpy = 1.16.4 is required.
+
+**Just One Line Code**
 
 ```bash
-$ python setup.py install && python test/EAlibTest.py -filename=tsp/eil51.tsp && python test/visual.py -filename=ei151.tsp
+$ python setup.py install && python test/EAlibTest.py -filename=tsp/eil51.tsp && python test/visual.py -filename=eil51.tsp
 ```
 
 ----------
 
-You can clone the code from **GitHub**, and run the commands as follows in terminal:
+**You can also** clone the code from **GitHub**, and run the commands as follows in terminal:
 
 ```bash
 $ git clone https://github.com/iseesaw/EAlib

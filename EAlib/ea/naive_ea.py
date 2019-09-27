@@ -79,7 +79,7 @@ class Naive_Ea(object):
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
-        with open(os.path.join(output_dir, filename), "w") as f:
+        with open(os.path.join(output_dir,"%s.json" % filename), "w") as f:
             best_ones = {idx: {"fitness": individual.fitness, "gene": individual.gene}
                          for idx, individual in enumerate(population.best_ones)}
             #save_best_ones = {idx:best_ones[idx] for idx in range(0, max_gen, 100)}
