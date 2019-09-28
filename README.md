@@ -1,5 +1,15 @@
 ## EAlib
 
+Members：
+
+| Name           | Students numbers | email addresse            |
+| -------------- | ---------------- | ------------------------- |
+| Zhang Kaiyan   | 1160300607       | kyzhang@ir.hit.edu.cn     |
+| Wu Jiaming     | 1160300612       | 1160300612@stu.hit.edu.cn |
+| Li Yangfan     | 1160300627       | 1440241051@qq.com         |
+| Wang Zhongyuan | 1160300629       | zywang@ir.hit.edu.cn      |
+| Sun Runxin     | 1160300911       | 448393580@qq.com          |
+
 Video Here:
 - [OneDriver](https://1drv.ms/v/s!Al3M6DKQN2ZdmVhEGCHBqPbyBcHo?e=kHUzvY) 
 - [YouTube](https://youtu.be/izNkwlp6rEs)
@@ -142,3 +152,52 @@ Here comes the information about `EAlibTest.py`.
   ```
 
   
+
+### Files Structure
+
+```python
+EAlib
+|-- EAlib # Our Core Algorithms
+|   |-- __init__.py
+|   |-- basic # basic classes
+|   |   |-- __init__.py
+|   |   |-- individual.py
+|   |   |-- population.py
+|   |   `-- tspproblem.py
+|   |-- ea # main function
+|   |   |-- __init__.py
+|   |   `-- naive_ea.py
+|   |-- log # log
+|   |   |-- __init__.py 
+|   |   |-- log.conf
+|   |   `-- log.py
+|   |-- operators
+|   |   |-- __init__.py
+|   |   |-- crossover.py
+|   |   |-- mutation.py
+|   |   `-- selection.py
+|   `-- utils
+|       |-- __init__.py
+|       `-- dataloader.py
+|-- LICENSE
+|-- README.md
+|-- log.log # running log
+|-- history.log # more log to show in the history
+|-- output # output result files
+|   |-- best_algorithm.json  #### the log for the best algorithm ###
+|   |-- eil51.tsp
+|   |-- eil51.tsp.json # output file while you run the first command above
+|   `-- top5_algorithms.json ### the log for results of 3（5） algorithms ###
+|-- run_best.sh  # script
+|-- run_grid_search.sh # script 
+|-- run_top3.sh # script
+|-- setup.py
+|-- test  # experiments
+|   |-- EAlibTest.py
+|   |-- TSPProblemTest.py
+|   |-- analyze.py
+|   |-- dataloader.log
+|   |-- dataloadertest.py
+|   `-- visual.py
+`-- tsp # tsp problems
+```
