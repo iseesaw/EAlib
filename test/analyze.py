@@ -18,21 +18,27 @@ def main(filename):
     """
     tsp_problem = filename.split(".")[0]
     result = load_result(filename, "../output/result/output")
-    tsp = "../tsp/%s.tsp" % result["tsp"]
-    info, node_coords = load_tsp(tsp)
+    return result, tsp_problem
+    # tsp = "../tsp/%s.tsp" % result["tsp"]
+    # info, node_coords = load_tsp(tsp)
 
-    best_one = result["result"]
-    plt.figure(f'{result["tsp"]}')
-    plt.title("{} fitness={:.2f}".format(tsp_problem, best_one['fitness']))
-    x, y = get_pairs(best_one["gene"], node_coords)
-    for i in range(len(x)):
-        plt.plot(x[i], y[i], color='b')
-        plt.scatter(x[i], y[i], color='r')
+    # best_one = result["result"]
+    # plt.figure(f'{result["tsp"]}')
+    # plt.title("{} fitness={:.2f}".format(tsp_problem, best_one['fitness']))
+    # x, y = get_pairs(best_one["gene"], node_coords)
+    # for i in range(len(x)):
+    #     plt.plot(x[i], y[i], color='b')
+    #     plt.scatter(x[i], y[i], color='r')
 
-    plt.savefig("../output/figure/%s.png" % tsp_problem)
+    # plt.savefig("../output/figure/%s.png" % tsp_problem)
 
 if __name__ == '__main__':
     with open("../output/result/best_instance.json", "r") as f:
         data = json.load(f)
+    result = {}
     for key, value in data.items():
-        main(value[:-5])
+        res, tsp = main(value[:-5])
+        result[tsp] = res
+
+    with open("best_algorithm.json", "w") as f:
+        json.dump(result, f)
